@@ -19,3 +19,5 @@ const authMiddleware=(req,res,next)=>{
     return res.status(401).json({message:"invalid user"})
    }
 }
+
+module.exports=authMiddleware;
