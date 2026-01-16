@@ -1,15 +1,15 @@
 const express=require("express")
 const router=express.Router()
 
-const {createProfessional,getAllProfessional, updateProfessional,deleteProfessional}=require ("../controllers/professionalController")
+const {createProfessional,getAllProfessional,updateProfessional,deleteProfessional}=require ("../controllers/professionalController")
 
-const authmiddleware=require("../middleware/authmiddleware")
+const authMiddleware=require("../middleware/authmiddleware")
 const adminMiddleware=require("../middleware/adminMiddleware")
 
 
-router.get("/",authmiddleware,getAllProfessional)
-router.post("/",authmiddleware,adminMiddleware,createProfessional)
-router.put("/:id",authmiddleware,adminMiddleware,updateProfessional)
-router.delete("/:id",authmiddleware,adminMiddleware,deleteProfessional)
+router.get("/",authMiddleware,getAllProfessional)
+router.post("/",authMiddleware,adminMiddleware,createProfessional)
+router.put("/:id",authMiddleware,adminMiddleware,updateProfessional)
+router.delete("/:id",authMiddleware,adminMiddleware,deleteProfessional)
 
 module.exports=router;

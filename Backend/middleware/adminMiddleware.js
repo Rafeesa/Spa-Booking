@@ -6,7 +6,7 @@ const adminMiddleware=(req,res,next)=>{
     }
     else
     {
-        return res.status(401).json({message:"admin can only access"})
+        return res.status(403).json({message:"admin can only access"})
     }
 }
 

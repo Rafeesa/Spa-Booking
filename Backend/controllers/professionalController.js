@@ -44,7 +44,7 @@ const updateProfessional=async(req,res)=>{
         professional.name=name
         professional.isActive=isActive
         await professional.save()
-        res.status(400).json({message:"professional updated successfully",professional})
+        res.status(200).json({message:"professional updated successfully",professional})
 
     } catch (error) {
         console.error(error)
@@ -68,7 +68,7 @@ const deleteProfessional=async(req,res)=>{
     }
 }
 
-module.export={
+module.exports={
     createProfessional,
     getAllProfessional,
     updateProfessional,
