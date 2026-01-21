@@ -8,7 +8,6 @@ const createBooking=async(req,res)=>{
         const {services,professionals,startTime}=req.body
 
         const id=req.user.userId
-      //  const user=await User.findById(id)
         if(!services||services.length==0)
         {
            return res.status(400).json({message:"choose atleast one service"})
@@ -107,7 +106,7 @@ const updateBooking=async(req,res)=>{
 
             })
             if(overlap){
-                return res.status.json({message:"professional doesn't have slot for this time"})
+                return res.status(400).json({message:"professional doesn't have slot for this time"})
             }
         }
       
@@ -120,7 +119,7 @@ const updateBooking=async(req,res)=>{
        
     } catch (error) {
         console.error(error)
-        res.status(400).json({message:"server error"})
+        res.status(500).json({message:"server error"})
     }
 }
 const deleteBooking=async(req,res)=>{
